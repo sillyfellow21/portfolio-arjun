@@ -4,6 +4,8 @@ A sleek, modern, and responsive personal portfolio built with Next.js, TypeScrip
 
 [GitHub Profile](https://github.com/sillyfellow21)
 
+[🌐 Live site](https://arjun-saha.vercel.app)
+
 [🔗 Portfolio repository](https://github.com/sillyfellow21/portfolio-arjun)
 
 All you need to know about me, my projects and skills can be found here. Personalize the portfolio by modifying `src/pages/index.tsx` and `src/styles/globals.css` to emulate your own portfolio.
@@ -57,7 +59,9 @@ The site is then served on `http://localhost`.
 
 ### Vercel
 
-Import the repository at [vercel.com/new](https://vercel.com/new); the Next.js build is detected automatically and no configuration is required.
+Deployed at **[arjun-saha.vercel.app](https://arjun-saha.vercel.app)**, linked to this repository, so every push to `v2` deploys automatically. The Next.js build is detected automatically and needs no extra configuration.
+
+`NEXT_PUBLIC_SITE_URL` is set to `https://arjun-saha.vercel.app` in the project's Production environment, and the app reads it first. That override matters: `NEXT_PUBLIC_VERCEL_URL` resolves to the *per-deployment* host (`arjun-saha-<hash>-arju-s-deck.vercel.app`), which changes on every deploy and would churn `og:url` and `rel="canonical"`.
 
 `og:url` and `rel="canonical"` are resolved at build time from whichever host serves the page. Vercel exposes `NEXT_PUBLIC_VERCEL_URL`, which the app picks up on its own, so preview and production deployments stay correct without hardcoding a domain. To point them at a custom domain instead, set `NEXT_PUBLIC_SITE_URL` (see `.env.example`). For the Docker path, pass it as a build argument so it is baked into the bundle:
 

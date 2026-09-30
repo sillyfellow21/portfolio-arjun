@@ -100,6 +100,12 @@ export default function Container(props: ContainerProps) {
     ...customMeta,
   };
 
+  // og:image and twitter:image must be absolute URLs; crawlers (X, LinkedIn,
+  // Discord, Slack) silently drop the preview for relative ones.
+  const ogImage = meta.image.startsWith("http")
+    ? meta.image
+    : `${SITE_URL}${meta.image}`;
+
   // handle scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -135,12 +141,12 @@ export default function Container(props: ContainerProps) {
         <meta property="og:site_name" content="Arjun Saha" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
-        <meta property="og:image" content={meta.image} />
+        <meta property="og:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="sillyfellow21" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.image} />
+        <meta name="twitter:image" content={ogImage} />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon-192x192.png" />
       </Head>
