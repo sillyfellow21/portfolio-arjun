@@ -1,13 +1,14 @@
 # 🖥️ Arjun Saha Portfolio
 
-A sleek, modern, and responsive portfolio bootstrapped with [create-t3-app](https://create.t3.gg/).
+A sleek, modern, and responsive personal portfolio built with Next.js, TypeScript and Tailwind CSS.
+
+🌐 **Live site:** https://arjun-saha.vercel.app
 
 [GitHub Profile](https://github.com/sillyfellow21)
 
 [🔗 Portfolio repository](https://github.com/sillyfellow21/portfolio-arjun)
 
-All you need to know about me, my projects and skills can be found here. Personalize the portfolio by modifying `src/pages/index.tsx` and `src/styles/globals.css` to emulate your own portfolio. Made some improvements and want to share? Open a pull request.
-For any issues, feel free to report them here.
+All you need to know about me, my projects and skills can be found here. Personalize the portfolio by modifying `src/pages/index.tsx` and `src/styles/globals.css` to emulate your own portfolio.
 
 ## 🎉 Features
 - **Responsive Design**: The portfolio is designed to be fully responsive, providing an optimal viewing experience across a wide range of devices from desktops to mobile phones.
@@ -32,9 +33,6 @@ $ git clone https://github.com/sillyfellow21/portfolio-arjun.git
 
 # Navigate to the project directory
 $ cd portfolio-arjun
-
-# Remove current origin repository
-$ git remote remove origin
 ```
 
 <br />
@@ -49,7 +47,12 @@ $ npm run dev
 ```
 Now, open your browser and navigate to `http://localhost:3000` to view your portfolio live.
 
+## 🐳 Deployment
+The portfolio ships with a production-ready Docker setup that builds the app and serves it behind nginx:
 
-## How do I deploy this?
+```bash
+# Build the image and start the stack
+$ docker compose up -d --build
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+The site is then served on `http://localhost`. The live deployment is available at https://arjun-saha.vercel.app.

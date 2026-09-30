@@ -44,6 +44,8 @@ const navLinks = [
   { href: "#contact", text: "Contact" },
 ];
 
+const SITE_URL = "https://arjun-saha.vercel.app";
+
 function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   const href = e.currentTarget.getAttribute("href");
 
@@ -119,14 +121,8 @@ export default function Container(props: ContainerProps) {
         <meta name="robots" content="follow, index" />
         <meta name="theme-color" content="#7B82FE" />
         <meta content={meta.description} name="description" />
-        <meta
-          property="og:url"
-          content={`https://github.com/sillyfellow21${router.asPath}`}
-        />
-        <link
-          rel="canonical"
-          href={`https://github.com/sillyfellow21${router.asPath}`}
-        />
+        <meta property="og:url" content={`${SITE_URL}${router.asPath}`} />
+        <link rel="canonical" href={`${SITE_URL}${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Arjun Saha" />
         <meta property="og:description" content={meta.description} />
