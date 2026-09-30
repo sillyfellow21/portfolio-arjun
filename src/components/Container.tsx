@@ -44,7 +44,15 @@ const navLinks = [
   { href: "#contact", text: "Contact" },
 ];
 
-const SITE_URL = "https://arjun-saha.vercel.app";
+// Resolve the canonical origin at build time so og:url and rel="canonical"
+// follow wherever the app is actually hosted. Vercel injects
+// NEXT_PUBLIC_VERCEL_URL automatically; set NEXT_PUBLIC_SITE_URL to override
+// it with a custom domain. Local and Docker runs fall back to localhost.
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : "http://localhost:3000");
 
 function handleClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   const href = e.currentTarget.getAttribute("href");

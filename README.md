@@ -2,8 +2,6 @@
 
 A sleek, modern, and responsive personal portfolio built with Next.js, TypeScript and Tailwind CSS.
 
-🌐 **Live site:** https://arjun-saha.vercel.app
-
 [GitHub Profile](https://github.com/sillyfellow21)
 
 [🔗 Portfolio repository](https://github.com/sillyfellow21/portfolio-arjun)
@@ -55,4 +53,14 @@ The portfolio ships with a production-ready Docker setup that builds the app and
 $ docker compose up -d --build
 ```
 
-The site is then served on `http://localhost`. The live deployment is available at https://arjun-saha.vercel.app.
+The site is then served on `http://localhost`.
+
+### Vercel
+
+Import the repository at [vercel.com/new](https://vercel.com/new); the Next.js build is detected automatically and no configuration is required.
+
+`og:url` and `rel="canonical"` are resolved at build time from whichever host serves the page. Vercel exposes `NEXT_PUBLIC_VERCEL_URL`, which the app picks up on its own, so preview and production deployments stay correct without hardcoding a domain. To point them at a custom domain instead, set `NEXT_PUBLIC_SITE_URL` (see `.env.example`). For the Docker path, pass it as a build argument so it is baked into the bundle:
+
+```bash
+$ NEXT_PUBLIC_SITE_URL=https://example.com docker compose up -d --build
+```

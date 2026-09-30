@@ -13,6 +13,11 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
+# Public origin used for og:url and rel="canonical". Baked into the client
+# bundle at build time; see .env.example.
+ARG NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 # Enable Next.js standalone output
 RUN pnpm build
 
